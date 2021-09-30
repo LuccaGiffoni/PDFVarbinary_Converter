@@ -1,0 +1,16 @@
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\PDFConverter.exe
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\PDFConverter.dll
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\PDFConverter.deps.json
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\PDFConverter.runtimeconfig.json
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\PDFConverter.pdb
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\System.Data.SqlClient.dll
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\Microsoft.WindowsAPICodePack.Sensors.dll
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\Microsoft.WindowsAPICodePack.dll
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\runtimes\win-arm64\native\sni.dll
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\runtimes\win-x64\native\sni.dll
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\runtimes\win-x86\native\sni.dll
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\lucca\OneDrive\Documentos\Programação\Meus aplicativos\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
