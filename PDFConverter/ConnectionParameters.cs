@@ -8,11 +8,14 @@ namespace PDFConverter
 {
     class ConnectionParameters
     {
-        public static string DataSource = "goit.database.windows.net";
-        public static string UserID = "lucca";
-        public static string Password = "JavaScript2002.";
-        public static string InitialCatalog = "biomedical";
+        // Change this fields using your paramaters to connect
+        public static string DataSource = "your data source, from your database";
+        public static string UserID = "the user to access the database";
+        public static string Password = "the password to validate the access";
+        public static string InitialCatalog = "the name of the database you're trying to access";
 
+        // If you're using my script to create the table, let this string as it is.
+        // But, if you're using your own table, change this to INSERT data correctly
         public static string SqlString = "INSERT INTO archives VALUES (@fileContent, @fileName)";
     }
 }
