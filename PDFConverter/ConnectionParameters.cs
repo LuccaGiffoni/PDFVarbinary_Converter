@@ -12,5 +12,7 @@ namespace PDFConverter
         public static string UserID = "lucca";
         public static string Password = "JavaScript2002.";
         public static string InitialCatalog = "biomedical";
+
+        public static string SqlString = "INSERT INTO archives VALUES (@fileContent, @fileName)";
     }
 }

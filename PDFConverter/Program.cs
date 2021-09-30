@@ -10,6 +10,7 @@ namespace PDFConverter
         private static string OriginalUserID;
         private static string OriginalPassword;
         private static string OriginalInitialCatalog;
+
         static void Main()
         {
             // Header
@@ -242,7 +243,8 @@ namespace PDFConverter
                 try
                 {
                     // Insert the converted PDF to database
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO archives VALUES (@fileContent, @fileName)", connection))
+                    /// THAT'S TEH LINE YOU NEED TO CHANGE TO USE IT
+                    using (SqlCommand cmd = new SqlCommand(ConnectionParameters.SqlString, connection))
                     {
                         cmd.Parameters.AddWithValue("@fileName", pdfname);
                         cmd.Parameters.AddWithValue("@fileContent", contents);
