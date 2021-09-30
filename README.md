@@ -6,6 +6,9 @@ All the code you need is here.
 You just need to clone this repo, then open the Visual Studio application. After that, change the fields from class 'ConnectionParameters' to use your own parameters to connect with database.
 </br> After that you need to set the connection string to your database, setting the right fields to insert data. On my case, I use a VARBINARY(MAX) field and a VARCHAR(50) to allocate the filename.s
 
+## SQL Database
+Just to help, I inserted a SQL Server script to create a table to allocate the PDF conversions. You can find it inside the 'SQL Scripts' folder.
+
 ## Creating a executable (.exe) app
 After you've done all changes you want it's time to compile the application. To do that, all you gotta do is:
 </br></br>1. Open the Visual Studio application;
