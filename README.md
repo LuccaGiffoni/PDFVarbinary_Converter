@@ -8,7 +8,7 @@ You just need to clone this repo, then open the Visual Studio application. After
 
 ## What to do before using it
 1. Change <strong> ALL FIELDS FROM CONNECTIONPARAMETERS.CS</strongs>. That's crucial, it's where you set all the parameters to estabilish connection and the SQL Command to insert data.
-2.  
+
 ## SQL Database
 Just to help, I inserted a SQL Server script to create a table to allocate the PDF conversions. You can find it inside the 'SQL Scripts' folder.
 
