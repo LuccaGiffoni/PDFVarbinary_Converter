@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "onRp4gT1x4PGzS2jLJCZFPAJ9/MRn7Vb0QRS8r+HwFoZvwyesLcsHkMjErjN7dDqVjO+yvIhxaaEbVTfrHqGmg==",
+  "dgSpecHash": "kfU1t0Gb13Hn23BvM3X2VNkuaMwB/GpxUTu8tsiZnzrw433IqEXaJfjUd6seKjW6HAzymYMaL/4r3QUjHPytDQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\lucca\\source\\repos\\PDF Converter\\PDFConverter\\PDFConverter.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lucca\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\lucca\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\lucca\\.nuget\\packages\\mysqlconnector\\1.3.14\\mysqlconnector.1.3.14.nupkg.sha512",
     "C:\\Users\\lucca\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\lucca\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\lucca\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

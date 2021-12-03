@@ -26,3 +26,4 @@ C:\Users\lucca\source\repos\PDF Converter\PDFConverter\bin\Debug\net5.0\Microsof
 C:\Users\lucca\source\repos\PDF Converter\PDFConverter\bin\Debug\net5.0\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Users\lucca\source\repos\PDF Converter\PDFConverter\bin\Debug\net5.0\Microsoft.WindowsAPICodePack.ShellExtensions.dll
 C:\Users\lucca\source\repos\PDF Converter\PDFConverter\bin\Debug\net5.0\Microsoft.WindowsAPICodePack.dll
+C:\Users\lucca\source\repos\PDF Converter\PDFConverter\bin\Debug\net5.0\MySqlConnector.dll

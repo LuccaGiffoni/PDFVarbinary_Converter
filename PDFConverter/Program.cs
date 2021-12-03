@@ -1,6 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Data.SqlClient;
 using System.IO;
+using System.Text;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace PDFConverter
 {
@@ -17,7 +24,7 @@ namespace PDFConverter
             Console.Clear();
             Console.WriteLine("Welcome to the PDF Converter!\nPlease, select what you wanna do:\n");
             Console.WriteLine("1. Save PDF file to database");
-            Console.WriteLine("2. Change connection string\n");
+            Console.WriteLine("2. Delete PDF from database");
             Console.WriteLine("3. Close application\n");
             var response = Console.ReadLine();
             Console.WriteLine("____________________________________________________________________________________\n\n");
@@ -39,7 +46,7 @@ namespace PDFConverter
                     break;
 
                 case "2":
-                    ChangeSettings();
+                    DeletePDF();
                     break;
 
                 case "3":
@@ -68,7 +75,7 @@ namespace PDFConverter
             Console.WriteLine("Password: " + ConnectionParameters.Password);
             Console.WriteLine("Initial Catalog: " + ConnectionParameters.InitialCatalog);
 
-            Console.WriteLine("\nIf you really wanna change something, press enter or press any key to go back to main menu:");
+            Console.WriteLine("\nIf you really wanna change something press enter or press any key to go back to main menu:");
             var readKey = Console.ReadKey();
 
             if(readKey.Key != ConsoleKey.Enter)
@@ -217,20 +224,98 @@ namespace PDFConverter
             OpenConnection(pdfname, filepath);
         }
 
+        private static void DeletePDF()
+        {
+            // Header
+            Console.Clear();
+            Console.WriteLine("Welcome to the PDF Converter!\nPlease, follow the instructions above:\n");
+
+            using (SqlConnection connection = new SqlConnection(ConnectionParameters.connectionBuilder.ConnectionString))
+            {
+                 // Opening connection
+                try
+                {
+                    connection.Open();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+                // Getting info from user
+                string DeletePDF = "DELETE FROM archives WHERE pdfname = @pdfname";
+                string PDFName = "";
+
+                Console.WriteLine("\nInsert the name of the PDF you wanna delete from database: ");
+                PDFName = Console.ReadLine();
+
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(DeletePDF, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@fileName", PDFName);
+                        cmd.ExecuteNonQuery();
+
+                        Console.WriteLine("The PDF with name " + PDFName + " was deleted with success");
+                        Console.WriteLine("\nTo go back to main menu, press enter or press any other key to close application:");
+                        var readKey = Console.ReadKey();
+
+                        if (readKey.Key == ConsoleKey.Enter)
+                        {
+                            Main();
+                        }
+                        else
+                        {
+                            Environment.Exit(0);
+                        }
+                    }
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine(error.Message);
+
+                    Console.WriteLine("\nAn error ocurred, to go back to main menu and try again, press enter or any other key to close application:");
+                    var readKey = Console.ReadKey();
+
+                    if(readKey.Key == ConsoleKey.Enter)
+                    {
+                        Main();
+                    }
+                    else
+                    {
+                        Environment.Exit(0);
+                    }
+                }
+            }
+        }
+
+        // Function to retrieve user's IP
+        private static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
+        }
+
         private static void OpenConnection(string pdfname, string filepath)
         {
-            // Estabilishing Connection
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-
-            builder.DataSource = ConnectionParameters.DataSource;
-            builder.UserID = ConnectionParameters.UserID;
-            builder.Password = ConnectionParameters.Password;
-            builder.InitialCatalog = ConnectionParameters.InitialCatalog;
-
-            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            using (SqlConnection connection = new SqlConnection(ConnectionParameters.connectionBuilder.ConnectionString))
             {
                 // Opening connection
-                connection.Open();
+                try
+                {
+                    connection.Open();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
 
                 // Setting the file and the filename to be saved
                 FileStream fStream = File.OpenRead(filepath);
@@ -242,9 +327,9 @@ namespace PDFConverter
 
                 try
                 {
-                    // Insert the converted PDF to database
-                    /// THAT'S TEH LINE YOU NEED TO CHANGE TO USE IT
-                    using (SqlCommand cmd = new SqlCommand(ConnectionParameters.SqlString, connection))
+                    //// Insert the converted PDF to database
+                    ///// THAT'S TEH LINE YOU NEED TO CHANGE TO USE IT
+                    using (SqlCommand cmd = new SqlCommand(ConnectionParameters.InsertPDF, connection))
                     {
                         cmd.Parameters.AddWithValue("@fileName", pdfname);
                         cmd.Parameters.AddWithValue("@fileContent", contents);
@@ -254,7 +339,7 @@ namespace PDFConverter
                         Console.WriteLine("\nTo go back to main menu, press enter or press any other key to close application:");
                         var readKey = Console.ReadKey();
 
-                        if(readKey.Key == ConsoleKey.Enter)
+                        if (readKey.Key == ConsoleKey.Enter)
                         {
                             Main();
                         }
